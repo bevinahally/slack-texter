@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  app:
+    container_name: slack_texter
+    build:
+      context: ./services/slack_texter
+      dockerfile: Dockerfile-dev
+    volumes:
+      - './services/slack_texter:/usr/src/app'
+    ports:
+      - 5001:5000
+    depends_on:
+      - nginx
+
+  nginx:
+    container_name: nginx
+    build:
+      context: ./services/nginx
+      dockerfile: Dockerfile-dev
+    restart: always
+    ports:
+      - 80:80
+

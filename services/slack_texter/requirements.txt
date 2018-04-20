@@ -1,0 +1,7 @@
+Flask==0.12.2
+slackclient==1.0.9
+uWSGI==2.0.17
+requests==2.18.4
+twilio==6.10.5
+gunicorn==19.7.1
+

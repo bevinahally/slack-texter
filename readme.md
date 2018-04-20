@@ -1,0 +1,1 @@
+A simple interface to use Slack and SMS interactively

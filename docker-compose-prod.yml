@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  slack_texter:
+    container_name: slack_texter
+    build:
+      context: ./services/slack_texter
+      dockerfile: Dockerfile-prod
+    expose:
+      - '5000'
+
+  nginx:
+    container_name: nginx
+    build:
+      context: ./services/nginx
+      dockerfile: Dockerfile-prod
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - slack_texter
+    
